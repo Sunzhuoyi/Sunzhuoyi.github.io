@@ -134,7 +134,43 @@
         </header>
 
         <div class="post-content">
-            
+            <h1 id="关于数组的一些思考和整理"><a href="#关于数组的一些思考和整理" class="headerlink" title="关于数组的一些思考和整理"></a>关于数组的一些思考和整理</h1><h2 id="两个空数组相加结果为何是空字符串"><a href="#两个空数组相加结果为何是空字符串" class="headerlink" title="两个空数组相加结果为何是空字符串"></a>两个空数组相加结果为何是空字符串</h2><p>显然，两个空数组都转化为了空字符串。</p>
+<p>Q1：为何会转换为字符串？<br>Object.prototype.toString() toString()方法返回一个表示该对象的字符串。<br><img src="./imgs/arr.png" alt="avatar"></p>
+<p>数组本来就是对象，然而b转成了”[object Object]”c却是””</p>
+<p>A：数组的默认toString()方法经过了重新定义，将所有的字符串化以后再用“,”连接起来</p>
+<pre><code>let a = [1,2,3]
+a.toString() // &quot;1,2,3&quot;
+let b = [[1,2],[3,4],[5,[6,7]]]
+// &quot;1,2,3,4,5,6,7&quot;</code></pre><p>Q2: 为何是强制转换为string而不是number或其他?</p>
+<p>A: <img src="./imgs/2020-03-12.8.51.20.png" alt="avatar"></p>
+<p>因为Array没有toNumber方法。<br>同样Object也没有<br><img src="./imgs/2020-03-12.9.00.32.png" alt="avatar"></p>
+<p>另外需要注意的是使用Object.create(null) 创建的对象原型属性为null,并且没有valueOf()和toString()方法，因此无法进行强制类型转换。</p>
+<h2 id="如何判断是数组"><a href="#如何判断是数组" class="headerlink" title="如何判断是数组"></a>如何判断是数组</h2><h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>检测对象的原型链是否指向构造函数的prototype对象的</p>
+<pre><code>let a = []
+a instanceof Array //true</code></pre><h3 id="对象的constructor属性"><a href="#对象的constructor属性" class="headerlink" title="对象的constructor属性"></a>对象的constructor属性</h3><p>a.constructor === Array</p>
+<p>可参考第二张图片</p>
+<p>但是跨frame实例化的对象彼此是不共享原型链的</p>
+<h3 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString()"></a>Object.prototype.toString()</h3><p>[[]]用来表示语言内部用到的、外部不可直接访问的属性，称为“内部属性”)。利用这 个方法，再配合call，我们可以取得任何对象的内部属性[[Class]]。</p>
+<p>参考第一张图片</p>
+<h3 id="Array-isArray"><a href="#Array-isArray" class="headerlink" title="Array.isArray()"></a>Array.isArray()</h3><p>用于确定传递的值是否是一个Array.</p>
+<p>当检测Array实例时, Array.isArray 优于 instanceof,因为Array.isArray能检测iframes.</p>
+<h4 id="Polifill"><a href="#Polifill" class="headerlink" title="Polifill"></a>Polifill</h4><p>假如不存在 Array.isArray()，则在其他代码之前运行下面的代码将创建该方法。</p>
+<pre><code>if (!Array.isArray) {
+  Array.isArray = function(arg) {
+    return Object.prototype.toString.call(arg) === &#39;[object Array]&#39;;
+  };
+}</code></pre><p>当然也可以不创建，如下测试：</p>
+<pre><code>if (typeof Array.isArray === &quot;function&quot;) {
+return Array.isArray(value);
+}else{
+return Object.prototype.toString.call(value) === &quot;[object Array]&quot;;
+}</code></pre><h2 id="数组扁平化"><a href="#数组扁平化" class="headerlink" title="数组扁平化"></a>数组扁平化</h2><h3 id="参考第一段示例代码-可知调用-arr-toString"><a href="#参考第一段示例代码-可知调用-arr-toString" class="headerlink" title="参考第一段示例代码 可知调用 arr.toString()"></a>参考第一段示例代码 可知调用 arr.toString()</h3><h3 id="ES6-数组的扩展-flat-flatMap"><a href="#ES6-数组的扩展-flat-flatMap" class="headerlink" title="ES6 数组的扩展 flat(), flatMap()"></a>ES6 数组的扩展 flat(), flatMap()</h3><p><a href="https://es6.ruanyifeng.com/#docs/array#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84-flat%EF%BC%8CflatMap" target="_blank" rel="noopener">flat,flatMap</a></p>
+<h2 id="数组的方法"><a href="#数组的方法" class="headerlink" title="数组的方法"></a>数组的方法</h2><p>方法挺多，只列一下不改变原数组的（8个）</p>
+<p>ES5:</p>
+<p>join, toLocaleString, toString, slice,  concat, indexOf, lastIndexOf</p>
+<p>ES6:</p>
+<p>includes</p>
+
         </div>
 
         
