@@ -143,8 +143,8 @@
 a.toString() // &quot;1,2,3&quot;
 let b = [[1,2],[3,4],[5,[6,7]]]
 // &quot;1,2,3,4,5,6,7&quot;</code></pre><p>Q2: 为何是强制转换为string而不是number或其他?</p>
-<p>A: <img src="../../imgs/2020-03-12.8.51.20.png" alt="pic"></p>
-<p>因为Array没有toNumber方法。<br>同样Object也没有<br><img src="../../imgs/2020-03-12.9.00.32.png" alt="pic"></p>
+<p>A: <img src="/imgs/2020-03-12.8.51.20.png" alt="pic"></p>
+<p>因为Array没有toNumber方法。<br>同样Object也没有<br><img src="/imgs/2020-03-12.9.00.32.png" alt="pic"></p>
 <p>另外需要注意的是使用Object.create(null) 创建的对象原型属性为null,并且没有valueOf()和toString()方法，因此无法进行强制类型转换。</p>
 <h2 id="如何判断是数组"><a href="#如何判断是数组" class="headerlink" title="如何判断是数组"></a>如何判断是数组</h2><h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>检测对象的原型链是否指向构造函数的prototype对象的</p>
 <pre><code>let a = []
