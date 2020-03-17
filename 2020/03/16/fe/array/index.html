@@ -135,15 +135,15 @@
 
         <div class="post-content">
             <h1 id="关于数组的一些思考和整理"><a href="#关于数组的一些思考和整理" class="headerlink" title="关于数组的一些思考和整理"></a>关于数组的一些思考和整理</h1><h2 id="两个空数组相加结果为何是空字符串"><a href="#两个空数组相加结果为何是空字符串" class="headerlink" title="两个空数组相加结果为何是空字符串"></a>两个空数组相加结果为何是空字符串</h2><p>显然，两个空数组都转化为了空字符串。</p>
-<p>Q1：为何会转换为字符串？<br>Object.prototype.toString() toString()方法返回一个表示该对象的字符串。<br><img src="./imgs/arr.png" alt="avatar"></p>
+<p>Q1：为何会转换为字符串？<br>Object.prototype.toString() toString()方法返回一个表示该对象的字符串。<br><img src="./imgs/arr.png" alt="pic"></p>
 <p>数组本来就是对象，然而b转成了”[object Object]”c却是””</p>
 <p>A：数组的默认toString()方法经过了重新定义，将所有的字符串化以后再用“,”连接起来</p>
 <pre><code>let a = [1,2,3]
 a.toString() // &quot;1,2,3&quot;
 let b = [[1,2],[3,4],[5,[6,7]]]
 // &quot;1,2,3,4,5,6,7&quot;</code></pre><p>Q2: 为何是强制转换为string而不是number或其他?</p>
-<p>A: <img src="./imgs/2020-03-12.8.51.20.png" alt="avatar"></p>
-<p>因为Array没有toNumber方法。<br>同样Object也没有<br><img src="./imgs/2020-03-12.9.00.32.png" alt="avatar"></p>
+<p>A: <img src="./imgs/2020-03-12.8.51.20.png" alt="pic"></p>
+<p>因为Array没有toNumber方法。<br>同样Object也没有<br><img src="./imgs/2020-03-12.9.00.32.png" alt="pic"></p>
 <p>另外需要注意的是使用Object.create(null) 创建的对象原型属性为null,并且没有valueOf()和toString()方法，因此无法进行强制类型转换。</p>
 <h2 id="如何判断是数组"><a href="#如何判断是数组" class="headerlink" title="如何判断是数组"></a>如何判断是数组</h2><h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>检测对象的原型链是否指向构造函数的prototype对象的</p>
 <pre><code>let a = []
