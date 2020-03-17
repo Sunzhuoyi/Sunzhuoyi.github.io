@@ -134,7 +134,7 @@
         </header>
 
         <div class="post-content">
-            <h1 id="关于数组的一些思考和整理"><a href="#关于数组的一些思考和整理" class="headerlink" title="关于数组的一些思考和整理"></a>关于数组的一些思考和整理</h1><h2 id="两个空数组相加结果为何是空字符串"><a href="#两个空数组相加结果为何是空字符串" class="headerlink" title="两个空数组相加结果为何是空字符串"></a>两个空数组相加结果为何是空字符串</h2><p>显然，两个空数组都转化为了空字符串。</p>
+            <h2 id="两个空数组相加结果为何是空字符串"><a href="#两个空数组相加结果为何是空字符串" class="headerlink" title="两个空数组相加结果为何是空字符串"></a>两个空数组相加结果为何是空字符串</h2><p>显然，两个空数组都转化为了空字符串。</p>
 <p>Q1：为何会转换为字符串？<br>Object.prototype.toString() toString()方法返回一个表示该对象的字符串。</p>
 <p><img src="/imgs/arr.png" alt="pic"></p>
 <p>数组本来就是对象，然而b转成了”[object Object]”c却是””</p>
@@ -202,7 +202,7 @@ return Object.prototype.toString.call(value) === &quot;[object Array]&quot;;
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/03/17/hmr/">webpack 热加载原理</a>
+                <a class="prev" rel="prev" href="/2020/03/17/fe/hmr/">webpack 热加载原理</a>
             
             
         </section>
