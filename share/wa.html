@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Danika">
+
+
+
+
+
+<title>WebAssemble | Danika&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Danika&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/categories">Categories</a>
+                
+                    <a class="menu-item" href="/tags">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Danika&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/categories">Categories</a>
+                
+                    <a class="menu-item" href="/tags">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title">WebAssemble</h2>
+        
+        <section class="post-content">
+            <h1 id="WebAssembly-简介"><a href="#WebAssembly-简介" class="headerlink" title="WebAssembly 简介"></a>WebAssembly 简介</h1><h6 id="By-孙卓怡"><a href="#By-孙卓怡" class="headerlink" title="By  孙卓怡"></a>By  孙卓怡</h6><hr>
+<h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><h3 id="js是弱类型编程语言，初始化变量时无须显式地指出变量地具体类型，整个变量地类型完全由代码解释器在代码地运行过程中进行推断。"><a href="#js是弱类型编程语言，初始化变量时无须显式地指出变量地具体类型，整个变量地类型完全由代码解释器在代码地运行过程中进行推断。" class="headerlink" title="js是弱类型编程语言，初始化变量时无须显式地指出变量地具体类型，整个变量地类型完全由代码解释器在代码地运行过程中进行推断。"></a>js是弱类型编程语言，初始化变量时无须显式地指出变量地具体类型，整个变量地类型完全由代码解释器在代码地运行过程中进行推断。</h3><h3 id="C语言等强类型语言可以提前将程序等源代码进行静态编译和优化，最后直接生成相应的经过优化的二进制机器码供CPU执行。"><a href="#C语言等强类型语言可以提前将程序等源代码进行静态编译和优化，最后直接生成相应的经过优化的二进制机器码供CPU执行。" class="headerlink" title="C语言等强类型语言可以提前将程序等源代码进行静态编译和优化，最后直接生成相应的经过优化的二进制机器码供CPU执行。"></a>C语言等强类型语言可以提前将程序等源代码进行静态编译和优化，最后直接生成相应的经过优化的二进制机器码供CPU执行。</h3><h3 id="强类型语言的运行效率更高。"><a href="#强类型语言的运行效率更高。" class="headerlink" title="强类型语言的运行效率更高。"></a>强类型语言的运行效率更高。</h3><hr>
+<h1 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h1><h3 id="ASM-js"><a href="#ASM-js" class="headerlink" title="ASM.js"></a>ASM.js</h3><h3 id="PNaCl"><a href="#PNaCl" class="headerlink" title="PNaCl"></a>PNaCl</h3><hr>
+<h1 id="ASM-js-1"><a href="#ASM-js-1" class="headerlink" title="ASM.js"></a>ASM.js</h1><h3 id="ASM-js-它是JavaScript的一个严格子集，是一种可用于编译器的低层级的，高效的目标语言。"><a href="#ASM-js-它是JavaScript的一个严格子集，是一种可用于编译器的低层级的，高效的目标语言。" class="headerlink" title="ASM.js 它是JavaScript的一个严格子集，是一种可用于编译器的低层级的，高效的目标语言。"></a>ASM.js 它是JavaScript的一个严格子集，是一种可用于编译器的低层级的，高效的目标语言。</h3><h3 id="为内存不安全语言（如C或C-）描述了一个沙盒虚拟机的运行环境，一种静态和动态验证相结合的方式使得JavaScript引擎能够使用AOT（Ahead-Of-Time-静态编译）的优化编译策略来验证ASM-js的代码。"><a href="#为内存不安全语言（如C或C-）描述了一个沙盒虚拟机的运行环境，一种静态和动态验证相结合的方式使得JavaScript引擎能够使用AOT（Ahead-Of-Time-静态编译）的优化编译策略来验证ASM-js的代码。" class="headerlink" title="为内存不安全语言（如C或C++）描述了一个沙盒虚拟机的运行环境，一种静态和动态验证相结合的方式使得JavaScript引擎能够使用AOT（Ahead-Of-Time,静态编译）的优化编译策略来验证ASM.js的代码。"></a>为内存不安全语言（如C或C++）描述了一个沙盒虚拟机的运行环境，一种静态和动态验证相结合的方式使得JavaScript引擎能够使用AOT（Ahead-Of-Time,静态编译）的优化编译策略来验证ASM.js的代码。</h3><h3 id="使用了一种名为”Annotation-注解-”的变量类型声明方式来与JavaScript引擎形成对代码中使用到的变量类型约定"><a href="#使用了一种名为”Annotation-注解-”的变量类型声明方式来与JavaScript引擎形成对代码中使用到的变量类型约定" class="headerlink" title="使用了一种名为”Annotation(注解)”的变量类型声明方式来与JavaScript引擎形成对代码中使用到的变量类型约定"></a>使用了一种名为”Annotation(注解)”的变量类型声明方式来与JavaScript引擎形成对代码中使用到的变量类型约定</h3><hr>
+<h3 id="ASM-js本身存在着一定的问题和局限性"><a href="#ASM-js本身存在着一定的问题和局限性" class="headerlink" title="ASM.js本身存在着一定的问题和局限性"></a>ASM.js本身存在着一定的问题和局限性</h3><h4 id="只定义了对数值类型变量对Annotation声明方式，对其他常见的如字符串和对象等JavaScript类型我们只能通过比如将这些数据编码成内存中一段连续的32位整数等方式来供ASM-js优化和处理"><a href="#只定义了对数值类型变量对Annotation声明方式，对其他常见的如字符串和对象等JavaScript类型我们只能通过比如将这些数据编码成内存中一段连续的32位整数等方式来供ASM-js优化和处理" class="headerlink" title="只定义了对数值类型变量对Annotation声明方式，对其他常见的如字符串和对象等JavaScript类型我们只能通过比如将这些数据编码成内存中一段连续的32位整数等方式来供ASM.js优化和处理"></a>只定义了对数值类型变量对Annotation声明方式，对其他常见的如字符串和对象等JavaScript类型我们只能通过比如将这些数据编码成内存中一段连续的32位整数等方式来供ASM.js优化和处理</h4><h4 id="各大浏览器厂商对ASM-js标准对支持程度和实现方式不尽相同，同样的一段ASM-js代码在各个浏览器上的运行效果可能会有很大的不同"><a href="#各大浏览器厂商对ASM-js标准对支持程度和实现方式不尽相同，同样的一段ASM-js代码在各个浏览器上的运行效果可能会有很大的不同" class="headerlink" title="各大浏览器厂商对ASM.js标准对支持程度和实现方式不尽相同，同样的一段ASM.js代码在各个浏览器上的运行效果可能会有很大的不同"></a>各大浏览器厂商对ASM.js标准对支持程度和实现方式不尽相同，同样的一段ASM.js代码在各个浏览器上的运行效果可能会有很大的不同</h4><hr>
+<h1 id="PNaCl-Portable-Native-Client"><a href="#PNaCl-Portable-Native-Client" class="headerlink" title="PNaCl(Portable Native Client)"></a>PNaCl(Portable Native Client)</h1><h3 id="是由Google提出的一种可以在浏览器中执行native-code的一种技术。该技术到前身是google提出的NaCl-Native-Client-NaCl较之PNaCl缺乏移植性"><a href="#是由Google提出的一种可以在浏览器中执行native-code的一种技术。该技术到前身是google提出的NaCl-Native-Client-NaCl较之PNaCl缺乏移植性" class="headerlink" title="是由Google提出的一种可以在浏览器中执行native code的一种技术。该技术到前身是google提出的NaCl(Native Client), NaCl较之PNaCl缺乏移植性"></a>是由Google提出的一种可以在浏览器中执行native code的一种技术。该技术到前身是google提出的NaCl(Native Client), NaCl较之PNaCl缺乏移植性</h3><h3 id="PNaCl使用LLVM中到bitcode的概念，先将C-C-源代码编译成一种中间码-bitCode-然后可以通过一个translate的工具翻译成不同平台的可执行文件"><a href="#PNaCl使用LLVM中到bitcode的概念，先将C-C-源代码编译成一种中间码-bitCode-然后可以通过一个translate的工具翻译成不同平台的可执行文件" class="headerlink" title="PNaCl使用LLVM中到bitcode的概念，先将C/C++源代码编译成一种中间码(bitCode),然后可以通过一个translate的工具翻译成不同平台的可执行文件"></a>PNaCl使用LLVM中到bitcode的概念，先将C/C++源代码编译成一种中间码(bitCode),然后可以通过一个translate的工具翻译成不同平台的可执行文件</h3><h3 id="性能较高"><a href="#性能较高" class="headerlink" title="性能较高"></a>性能较高</h3><hr>
+<h1 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h1><h3 id="只能用于Chrome浏览器"><a href="#只能用于Chrome浏览器" class="headerlink" title="只能用于Chrome浏览器"></a>只能用于Chrome浏览器</h3><h3 id="使用场景过于狭窄，高效的音频与视频处理，高性能的计算（如编-解码）需求等应用场景在Web领域并不多见"><a href="#使用场景过于狭窄，高效的音频与视频处理，高性能的计算（如编-解码）需求等应用场景在Web领域并不多见" class="headerlink" title="使用场景过于狭窄，高效的音频与视频处理，高性能的计算（如编/解码）需求等应用场景在Web领域并不多见"></a>使用场景过于狭窄，高效的音频与视频处理，高性能的计算（如编/解码）需求等应用场景在Web领域并不多见</h3><h3 id="因为WebAssembly出现谷歌放弃NaCl-PNaCl技术维护"><a href="#因为WebAssembly出现谷歌放弃NaCl-PNaCl技术维护" class="headerlink" title="因为WebAssembly出现谷歌放弃NaCl/PNaCl技术维护"></a>因为WebAssembly出现谷歌放弃NaCl/PNaCl技术维护</h3><hr>
+<h1 id="What"><a href="#What" class="headerlink" title="What"></a>What</h1><h3 id="编码方式"><a href="#编码方式" class="headerlink" title="编码方式"></a>编码方式</h3><h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><h3 id="标准"><a href="#标准" class="headerlink" title="标准"></a>标准</h3><hr>
+<p>class: img</p>
+<p><img src="/imgs/03-01-emscripten-1.png" alt="pic"></p>
+<hr>
+<h1 id="编码方式-1"><a href="#编码方式-1" class="headerlink" title="编码方式"></a>编码方式</h1><h3 id="一种新的编码方式-可以在现代的网络浏览器中运行"><a href="#一种新的编码方式-可以在现代的网络浏览器中运行" class="headerlink" title="一种新的编码方式,可以在现代的网络浏览器中运行"></a>一种新的编码方式,可以在现代的网络浏览器中运行</h3><h3 id="它是一种低级的类汇编语言，具有紧凑的二进制格式"><a href="#它是一种低级的类汇编语言，具有紧凑的二进制格式" class="headerlink" title="它是一种低级的类汇编语言，具有紧凑的二进制格式"></a>它是一种低级的类汇编语言，具有紧凑的二进制格式</h3><hr>
+<h1 id="性能-1"><a href="#性能-1" class="headerlink" title="性能"></a>性能</h1><h3 id="高效，接近原生，其目标就是充分发挥硬件能力以达到原生执行效率"><a href="#高效，接近原生，其目标就是充分发挥硬件能力以达到原生执行效率" class="headerlink" title="高效，接近原生，其目标就是充分发挥硬件能力以达到原生执行效率"></a>高效，接近原生，其目标就是充分发挥硬件能力以达到原生执行效率</h3><h3 id="为诸如C-C-等语言提供一个编译目标，以便他们可以在web上运行"><a href="#为诸如C-C-等语言提供一个编译目标，以便他们可以在web上运行" class="headerlink" title="为诸如C/C++等语言提供一个编译目标，以便他们可以在web上运行"></a>为诸如C/C++等语言提供一个编译目标，以便他们可以在web上运行</h3><hr>
+<h1 id="标准-1"><a href="#标准-1" class="headerlink" title="标准"></a>标准</h1><h3 id="WebAssembly-在-web-中被设计成无版本、特性可测试、向后兼容的"><a href="#WebAssembly-在-web-中被设计成无版本、特性可测试、向后兼容的" class="headerlink" title="WebAssembly 在 web 中被设计成无版本、特性可测试、向后兼容的"></a>WebAssembly 在 web 中被设计成无版本、特性可测试、向后兼容的</h3><h3 id="可以和JavaScript一起协同工作——通过使用WebAssembly的JavaScript-API"><a href="#可以和JavaScript一起协同工作——通过使用WebAssembly的JavaScript-API" class="headerlink" title="可以和JavaScript一起协同工作——通过使用WebAssembly的JavaScript API"></a>可以和JavaScript一起协同工作——通过使用WebAssembly的JavaScript API</h3><h3 id="可以把WebAssembly模块加载到一个JavaScript应用中并且在两者之间共享功能"><a href="#可以把WebAssembly模块加载到一个JavaScript应用中并且在两者之间共享功能" class="headerlink" title="可以把WebAssembly模块加载到一个JavaScript应用中并且在两者之间共享功能"></a>可以把WebAssembly模块加载到一个JavaScript应用中并且在两者之间共享功能</h3><h3 id="可以像Web-API一样调用浏览器的功能"><a href="#可以像Web-API一样调用浏览器的功能" class="headerlink" title="可以像Web API一样调用浏览器的功能"></a>可以像Web API一样调用浏览器的功能</h3><h3 id="不仅可以运行在浏览器上，也可以运行在非web环境下"><a href="#不仅可以运行在浏览器上，也可以运行在非web环境下" class="headerlink" title="不仅可以运行在浏览器上，也可以运行在非web环境下"></a>不仅可以运行在浏览器上，也可以运行在非web环境下</h3><hr>
+<h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><p><a href="http://webassembly.org.cn/getting-started/developers-guide/" target="_blank" rel="noopener">开发者引导</a></p>
+<hr>
+<h1 id="API-参考"><a href="#API-参考" class="headerlink" title="API 参考"></a>API 参考</h1><h3 id="WebAssembly"><a href="#WebAssembly" class="headerlink" title="WebAssembly"></a>WebAssembly</h3><h4 id="本对象是所有与WebAssembly相关功能的命名空间"><a href="#本对象是所有与WebAssembly相关功能的命名空间" class="headerlink" title="本对象是所有与WebAssembly相关功能的命名空间"></a>本对象是所有与WebAssembly相关功能的命名空间</h4><h3 id="WebAssembly-Module"><a href="#WebAssembly-Module" class="headerlink" title="WebAssembly.Module"></a>WebAssembly.Module</h3><h4 id="一个WebAssembly-Module对象包括了无状态的WebAssembly代码。该代码已经被浏览器编译并且能够通过Workers高效地共享，缓存到IndexedDB中以及多次实例化"><a href="#一个WebAssembly-Module对象包括了无状态的WebAssembly代码。该代码已经被浏览器编译并且能够通过Workers高效地共享，缓存到IndexedDB中以及多次实例化" class="headerlink" title="一个WebAssembly.Module对象包括了无状态的WebAssembly代码。该代码已经被浏览器编译并且能够通过Workers高效地共享，缓存到IndexedDB中以及多次实例化"></a>一个WebAssembly.Module对象包括了无状态的WebAssembly代码。该代码已经被浏览器编译并且能够通过Workers高效地共享，缓存到IndexedDB中以及多次实例化</h4><h3 id="WebAssembly-Instance"><a href="#WebAssembly-Instance" class="headerlink" title="WebAssembly.Instance"></a>WebAssembly.Instance</h3><h4 id="一个WebAssembly-Instance对象是一个有状态的、可执行的模块的实例。实例对象包含所有的能够从JavaScript调用到WebAssembly代码的导出的WebAssembly函数"><a href="#一个WebAssembly-Instance对象是一个有状态的、可执行的模块的实例。实例对象包含所有的能够从JavaScript调用到WebAssembly代码的导出的WebAssembly函数" class="headerlink" title="一个WebAssembly.Instance对象是一个有状态的、可执行的模块的实例。实例对象包含所有的能够从JavaScript调用到WebAssembly代码的导出的WebAssembly函数"></a>一个WebAssembly.Instance对象是一个有状态的、可执行的模块的实例。实例对象包含所有的能够从JavaScript调用到WebAssembly代码的导出的WebAssembly函数</h4><hr>
+<h3 id="WebAssembly-instantiate"><a href="#WebAssembly-instantiate" class="headerlink" title="WebAssembly.instantiate()"></a>WebAssembly.instantiate()</h3><h4 id="WebAssembly-instantiate-函数是编译和实例化WebAssembly代码的主要的API，它返回一个Module及其第一个实例"><a href="#WebAssembly-instantiate-函数是编译和实例化WebAssembly代码的主要的API，它返回一个Module及其第一个实例" class="headerlink" title="WebAssembly.instantiate() 函数是编译和实例化WebAssembly代码的主要的API，它返回一个Module及其第一个实例"></a>WebAssembly.instantiate() 函数是编译和实例化WebAssembly代码的主要的API，它返回一个Module及其第一个实例</h4><h3 id="WebAssembly-Memory"><a href="#WebAssembly-Memory" class="headerlink" title="WebAssembly.Memory()"></a>WebAssembly.Memory()</h3><h4 id="一个WebAssembly-Memory-对象是一个可变长的ArrayBuffer。它拥有能够被实例存取的原始字节内存"><a href="#一个WebAssembly-Memory-对象是一个可变长的ArrayBuffer。它拥有能够被实例存取的原始字节内存" class="headerlink" title="一个WebAssembly.Memory 对象是一个可变长的ArrayBuffer。它拥有能够被实例存取的原始字节内存"></a>一个WebAssembly.Memory 对象是一个可变长的ArrayBuffer。它拥有能够被实例存取的原始字节内存</h4><h3 id="WebAssembly-Table"><a href="#WebAssembly-Table" class="headerlink" title="WebAssembly.Table()"></a>WebAssembly.Table()</h3><h4 id="WebAssembly-Table对象是一个可变长类型数组。它存储诸如函数引用之类的不透明值并且能够被实例存取"><a href="#WebAssembly-Table对象是一个可变长类型数组。它存储诸如函数引用之类的不透明值并且能够被实例存取" class="headerlink" title="WebAssembly.Table对象是一个可变长类型数组。它存储诸如函数引用之类的不透明值并且能够被实例存取"></a>WebAssembly.Table对象是一个可变长类型数组。它存储诸如函数引用之类的不透明值并且能够被实例存取</h4><hr>
+<h3 id="WebAssembly-CompileError"><a href="#WebAssembly-CompileError" class="headerlink" title="WebAssembly.CompileError()"></a>WebAssembly.CompileError()</h3><h4 id="创建一个新的WebAssembly-CompileError对象"><a href="#创建一个新的WebAssembly-CompileError对象" class="headerlink" title="创建一个新的WebAssembly CompileError对象"></a>创建一个新的WebAssembly CompileError对象</h4><h3 id="WebAssembly-LinkError"><a href="#WebAssembly-LinkError" class="headerlink" title="WebAssembly.LinkError()"></a>WebAssembly.LinkError()</h3><h4 id="创建一个新的WebAssembly-LinkError对象"><a href="#创建一个新的WebAssembly-LinkError对象" class="headerlink" title="创建一个新的WebAssembly LinkError对象"></a>创建一个新的WebAssembly LinkError对象</h4><h3 id="WebAssembly-RuntimeError"><a href="#WebAssembly-RuntimeError" class="headerlink" title="WebAssembly.RuntimeError()"></a>WebAssembly.RuntimeError()</h3><h4 id="创建一个新的WebAssembly-RuntimeError对象"><a href="#创建一个新的WebAssembly-RuntimeError对象" class="headerlink" title="创建一个新的WebAssembly RuntimeError对象"></a>创建一个新的WebAssembly RuntimeError对象</h4><hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><h3 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a><a href="https://webassembly.org/" target="_blank" rel="noopener">官方文档</a></h3><h3 id="深入浅出-WebAssembly"><a href="#深入浅出-WebAssembly" class="headerlink" title="深入浅出 WebAssembly"></a><a href="https://www.zhihu.com/pub/book/119608271" target="_blank" rel="noopener">深入浅出 WebAssembly</a></h3><hr>
+<p>class: center, middle</p>
+<h1 id="THANKS"><a href="#THANKS" class="headerlink" title="THANKS"></a>THANKS</h1>
+        </section>
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Danika | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
