@@ -12,7 +12,7 @@
 
 
 
-<title>WebAssemble | Danika&#39;s Blog</title>
+<title>WebAssembly 概览 | Danika&#39;s Blog</title>
 
 
 
@@ -105,12 +105,36 @@
 </script>
         <div class="main">
             <div class="container">
-    <article class="post-wrap page">
-        
-        <h2 class="post-title">WebAssemble</h2>
-        
-        <section class="post-content">
-            <h1 id="WebAssembly-简介"><a href="#WebAssembly-简介" class="headerlink" title="WebAssembly 简介"></a>WebAssembly 简介</h1><h6 id="By-孙卓怡"><a href="#By-孙卓怡" class="headerlink" title="By  孙卓怡"></a>By  孙卓怡</h6><hr>
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">WebAssembly 概览</h1>
+            
+                <div class="post-meta">
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 23, 2020&nbsp;&nbsp;22:35:07</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/sharing/">sharing</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="AI原型开发前端组内部分享PPT"><a href="#AI原型开发前端组内部分享PPT" class="headerlink" title="AI原型开发前端组内部分享PPT"></a>AI原型开发前端组内部分享PPT</h3><h3 id="By-孙卓怡"><a href="#By-孙卓怡" class="headerlink" title="By  孙卓怡"></a>By  孙卓怡</h3><h4 id="原稿件用remark制作，一个可以用markdown语法写PPT的工具。这里因为格式问题只能把PPT内容无样式copy了。"><a href="#原稿件用remark制作，一个可以用markdown语法写PPT的工具。这里因为格式问题只能把PPT内容无样式copy了。" class="headerlink" title="原稿件用remark制作，一个可以用markdown语法写PPT的工具。这里因为格式问题只能把PPT内容无样式copy了。"></a>原稿件用<a href="https://github.com/gnab/remark" target="_blank" rel="noopener">remark</a>制作，一个可以用markdown语法写PPT的工具。这里因为格式问题只能把PPT内容无样式copy了。</h4><hr>
 <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><h3 id="js是弱类型编程语言，初始化变量时无须显式地指出变量地具体类型，整个变量地类型完全由代码解释器在代码地运行过程中进行推断。"><a href="#js是弱类型编程语言，初始化变量时无须显式地指出变量地具体类型，整个变量地类型完全由代码解释器在代码地运行过程中进行推断。" class="headerlink" title="js是弱类型编程语言，初始化变量时无须显式地指出变量地具体类型，整个变量地类型完全由代码解释器在代码地运行过程中进行推断。"></a>js是弱类型编程语言，初始化变量时无须显式地指出变量地具体类型，整个变量地类型完全由代码解释器在代码地运行过程中进行推断。</h3><h3 id="C语言等强类型语言可以提前将程序等源代码进行静态编译和优化，最后直接生成相应的经过优化的二进制机器码供CPU执行。"><a href="#C语言等强类型语言可以提前将程序等源代码进行静态编译和优化，最后直接生成相应的经过优化的二进制机器码供CPU执行。" class="headerlink" title="C语言等强类型语言可以提前将程序等源代码进行静态编译和优化，最后直接生成相应的经过优化的二进制机器码供CPU执行。"></a>C语言等强类型语言可以提前将程序等源代码进行静态编译和优化，最后直接生成相应的经过优化的二进制机器码供CPU执行。</h3><h3 id="强类型语言的运行效率更高。"><a href="#强类型语言的运行效率更高。" class="headerlink" title="强类型语言的运行效率更高。"></a>强类型语言的运行效率更高。</h3><hr>
 <h1 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h1><h3 id="ASM-js"><a href="#ASM-js" class="headerlink" title="ASM.js"></a>ASM.js</h3><h3 id="PNaCl"><a href="#PNaCl" class="headerlink" title="PNaCl"></a>PNaCl</h3><hr>
 <h1 id="ASM-js-1"><a href="#ASM-js-1" class="headerlink" title="ASM.js"></a>ASM.js</h1><h3 id="ASM-js-它是JavaScript的一个严格子集，是一种可用于编译器的低层级的，高效的目标语言。"><a href="#ASM-js-它是JavaScript的一个严格子集，是一种可用于编译器的低层级的，高效的目标语言。" class="headerlink" title="ASM.js 它是JavaScript的一个严格子集，是一种可用于编译器的低层级的，高效的目标语言。"></a>ASM.js 它是JavaScript的一个严格子集，是一种可用于编译器的低层级的，高效的目标语言。</h3><h3 id="为内存不安全语言（如C或C-）描述了一个沙盒虚拟机的运行环境，一种静态和动态验证相结合的方式使得JavaScript引擎能够使用AOT（Ahead-Of-Time-静态编译）的优化编译策略来验证ASM-js的代码。"><a href="#为内存不安全语言（如C或C-）描述了一个沙盒虚拟机的运行环境，一种静态和动态验证相结合的方式使得JavaScript引擎能够使用AOT（Ahead-Of-Time-静态编译）的优化编译策略来验证ASM-js的代码。" class="headerlink" title="为内存不安全语言（如C或C++）描述了一个沙盒虚拟机的运行环境，一种静态和动态验证相结合的方式使得JavaScript引擎能够使用AOT（Ahead-Of-Time,静态编译）的优化编译策略来验证ASM.js的代码。"></a>为内存不安全语言（如C或C++）描述了一个沙盒虚拟机的运行环境，一种静态和动态验证相结合的方式使得JavaScript引擎能够使用AOT（Ahead-Of-Time,静态编译）的优化编译策略来验证ASM.js的代码。</h3><h3 id="使用了一种名为”Annotation-注解-”的变量类型声明方式来与JavaScript引擎形成对代码中使用到的变量类型约定"><a href="#使用了一种名为”Annotation-注解-”的变量类型声明方式来与JavaScript引擎形成对代码中使用到的变量类型约定" class="headerlink" title="使用了一种名为”Annotation(注解)”的变量类型声明方式来与JavaScript引擎形成对代码中使用到的变量类型约定"></a>使用了一种名为”Annotation(注解)”的变量类型声明方式来与JavaScript引擎形成对代码中使用到的变量类型约定</h3><hr>
@@ -130,9 +154,43 @@
 <h3 id="WebAssembly-instantiate"><a href="#WebAssembly-instantiate" class="headerlink" title="WebAssembly.instantiate()"></a>WebAssembly.instantiate()</h3><h4 id="WebAssembly-instantiate-函数是编译和实例化WebAssembly代码的主要的API，它返回一个Module及其第一个实例"><a href="#WebAssembly-instantiate-函数是编译和实例化WebAssembly代码的主要的API，它返回一个Module及其第一个实例" class="headerlink" title="WebAssembly.instantiate() 函数是编译和实例化WebAssembly代码的主要的API，它返回一个Module及其第一个实例"></a>WebAssembly.instantiate() 函数是编译和实例化WebAssembly代码的主要的API，它返回一个Module及其第一个实例</h4><h3 id="WebAssembly-Memory"><a href="#WebAssembly-Memory" class="headerlink" title="WebAssembly.Memory()"></a>WebAssembly.Memory()</h3><h4 id="一个WebAssembly-Memory-对象是一个可变长的ArrayBuffer。它拥有能够被实例存取的原始字节内存"><a href="#一个WebAssembly-Memory-对象是一个可变长的ArrayBuffer。它拥有能够被实例存取的原始字节内存" class="headerlink" title="一个WebAssembly.Memory 对象是一个可变长的ArrayBuffer。它拥有能够被实例存取的原始字节内存"></a>一个WebAssembly.Memory 对象是一个可变长的ArrayBuffer。它拥有能够被实例存取的原始字节内存</h4><h3 id="WebAssembly-Table"><a href="#WebAssembly-Table" class="headerlink" title="WebAssembly.Table()"></a>WebAssembly.Table()</h3><h4 id="WebAssembly-Table对象是一个可变长类型数组。它存储诸如函数引用之类的不透明值并且能够被实例存取"><a href="#WebAssembly-Table对象是一个可变长类型数组。它存储诸如函数引用之类的不透明值并且能够被实例存取" class="headerlink" title="WebAssembly.Table对象是一个可变长类型数组。它存储诸如函数引用之类的不透明值并且能够被实例存取"></a>WebAssembly.Table对象是一个可变长类型数组。它存储诸如函数引用之类的不透明值并且能够被实例存取</h4><hr>
 <h3 id="WebAssembly-CompileError"><a href="#WebAssembly-CompileError" class="headerlink" title="WebAssembly.CompileError()"></a>WebAssembly.CompileError()</h3><h4 id="创建一个新的WebAssembly-CompileError对象"><a href="#创建一个新的WebAssembly-CompileError对象" class="headerlink" title="创建一个新的WebAssembly CompileError对象"></a>创建一个新的WebAssembly CompileError对象</h4><h3 id="WebAssembly-LinkError"><a href="#WebAssembly-LinkError" class="headerlink" title="WebAssembly.LinkError()"></a>WebAssembly.LinkError()</h3><h4 id="创建一个新的WebAssembly-LinkError对象"><a href="#创建一个新的WebAssembly-LinkError对象" class="headerlink" title="创建一个新的WebAssembly LinkError对象"></a>创建一个新的WebAssembly LinkError对象</h4><h3 id="WebAssembly-RuntimeError"><a href="#WebAssembly-RuntimeError" class="headerlink" title="WebAssembly.RuntimeError()"></a>WebAssembly.RuntimeError()</h3><h4 id="创建一个新的WebAssembly-RuntimeError对象"><a href="#创建一个新的WebAssembly-RuntimeError对象" class="headerlink" title="创建一个新的WebAssembly RuntimeError对象"></a>创建一个新的WebAssembly RuntimeError对象</h4><hr>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><h3 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a><a href="https://webassembly.org/" target="_blank" rel="noopener">官方文档</a></h3><h3 id="深入浅出-WebAssembly"><a href="#深入浅出-WebAssembly" class="headerlink" title="深入浅出 WebAssembly"></a><a href="https://www.zhihu.com/pub/book/119608271" target="_blank" rel="noopener">深入浅出 WebAssembly</a></h3><hr>
-<p>class: center, middle</p>
-<h1 id="THANKS"><a href="#THANKS" class="headerlink" title="THANKS"></a>THANKS</h1>
+<h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/WebAssemble/"># WebAssemble</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
         </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/03/17/fe/hmr/">webpack 热加载原理</a>
+            
+        </section>
+
+
     </article>
 </div>
 
