@@ -12,7 +12,7 @@
 
 
 
-<title>router 实现原理解析 | Danika&#39;s Blog</title>
+<title>细说React&amp;&amp;Vue同异 | Danika&#39;s Blog</title>
 
 
 
@@ -111,14 +111,14 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">router 实现原理解析</h1>
+            <h1 class="post-title">细说React&amp;&amp;Vue同异</h1>
             
                 <div class="post-meta">
                     
 
                     
                         <span class="post-time">
-                        Date: <a href="#">March 26, 2020&nbsp;&nbsp;23:54:27</a>
+                        Date: <a href="#">April 18, 2020&nbsp;&nbsp;20:35:02</a>
                         </span>
                     
                     
@@ -134,7 +134,41 @@
         </header>
 
         <div class="post-content">
-            <h1 id="请至知乎专栏阅读"><a href="#请至知乎专栏阅读" class="headerlink" title="请至知乎专栏阅读"></a><a href="https://zhuanlan.zhihu.com/p/48512803/edit" target="_blank" rel="noopener">请至知乎专栏阅读</a></h1>
+            <h2 id="设计相同点"><a href="#设计相同点" class="headerlink" title="设计相同点"></a>设计相同点</h2><ul>
+<li>使用Virtual DOM</li>
+<li>提供了响应式和组件化的试图组件</li>
+<li>将注意力集中保持在核心库，而将其他功能如路由和全局状态管理交给相关的库</li>
+</ul>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><ul>
+<li><p>都非常快，所以速度并不是在它们之中做选择都决定性因素</p>
+</li>
+<li><p>如果要避免不必要的子组件渲染，可以在React中使用PureComponent或是手动实现shouldComponentUpdate,</p>
+<blockquote>
+</blockquote>
+<p>注意</p>
+<p>React.PureComponent 中的 shouldComponentUpdate() 仅作对象的浅层比较。如果对象中包含复杂的数据结构，则有可能因为无法检查深层的差别，产生错误的比对结果。仅在你的 props 和 state 较为简单时，才使用 React.PureComponent，或者在深层数据结构发生变化时调用 forceUpdate() 来确保组件被正确地更新。你也可以考虑使用 immutable 对象加速嵌套数据的比较。</p>
+<p>此外，React.PureComponent 中的 shouldComponentUpdate() 将跳过所有子组件树的 prop 更新。因此，请确保所有子组件也都是“纯”的组件。</p>
+</li>
+<li><p>在 Vue 应用中，组件的依赖是在渲染过程中自动追踪的，所以系统能精确知晓哪个组件确实需要被重渲染。你可以理解为每一个组件都已经自动获得了 shouldComponentUpdate，并且没有上述的子树问题限制。</p>
+</li>
+</ul>
+<h2 id="书写"><a href="#书写" class="headerlink" title="书写"></a>书写</h2><ul>
+<li>React all in JS</li>
+<li>Vue 虽然同时支持JSX和Templates但是针对Templates在模版编译阶段做了很多优化。</li>
+</ul>
+<h3 id="数据流管理"><a href="#数据流管理" class="headerlink" title="数据流管理"></a>数据流管理</h3><ul>
+<li>React要配合Redux或者Mobx,这两个我都写了很长时间，总体感觉是Redux由于社区发展都较早，用的人多所以各种插件很全，促进Redux更强大,但是Redux使用起来较为繁琐。Mobx方便了很多，很容易上手，所以这几年在React社区很流行，它的设计哲学不同于Redux、Vuex的单向数据流，而是”任何源自应用状态的东西都应该自动地获得”。</li>
+<li>Vue自带了Vuex,和Redux思想很接近，但是用法有些不同。<pre><code>#### Redux：
+view——&gt;actions——&gt;reducer——&gt;state变化——&gt;view变化（同步异步一样）
+</code></pre></li>
+</ul>
+<h4 id="Vuex："><a href="#Vuex：" class="headerlink" title="Vuex："></a>Vuex：</h4><p>  view——&gt;commit——&gt;mutations——&gt;state变化——&gt;view变化（同步操作）</p>
+<p>  view——&gt;dispatch——&gt;actions——&gt;mutations——&gt;state变化——&gt;view变化（异步操作）</p>
+<pre><code>
+
+
+
+</code></pre>
         </div>
 
         
@@ -152,7 +186,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/router/"># router</a>
+                        <a href="/tags/%E6%A1%86%E6%9E%B6/"># 框架</a>
                     
                         
                 </span>
@@ -165,10 +199,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/04/18/fe/react-vue/">细说React&&Vue同异</a>
             
-            
-            <a class="next" rel="next" href="/2020/03/23/share/wa/">WebAssembly 概览</a>
+            <a class="next" rel="next" href="/2020/03/26/fe/router/">router 实现原理解析</a>
             
         </section>
 
