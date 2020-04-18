@@ -157,13 +157,18 @@
 <li>Vue 虽然同时支持JSX和Templates但是针对Templates在模版编译阶段做了很多优化。</li>
 </ul>
 <h3 id="数据流管理"><a href="#数据流管理" class="headerlink" title="数据流管理"></a>数据流管理</h3><ul>
-<li>React要配合Redux或者Mobx,这两个我都写了很长时间，总体感觉是Redux由于社区发展都较早，用的人多所以各种插件很全，促进Redux更强大,但是Redux使用起来较为繁琐。Mobx方便了很多，很容易上手，所以这几年在React社区很流行，它的设计哲学不同于Redux、Vuex的单向数据流，而是”任何源自应用状态的东西都应该自动地获得”。</li>
-<li>Vue自带了Vuex,和Redux思想很接近，但是用法有些不同。<pre><code>#### Redux：
+<li><p>React要配合Redux或者Mobx,这两个我都写了很长时间，总体感觉是Redux由于社区发展都较早，用的人多所以各种插件很全，促进Redux更强大,但是Redux使用起来较为繁琐。Mobx方便了很多，很容易上手，所以这几年在React社区很流行，它的设计哲学不同于Redux、Vuex的单向数据流，而是”任何源自应用状态的东西都应该自动地获得”。</p>
+</li>
+<li><p>Vue自带了Vuex,和Redux思想很接近，但是用法有些不同。</p>
+<pre><code>Redux：
 view——&gt;actions——&gt;reducer——&gt;state变化——&gt;view变化（同步异步一样）
+
+Vuex：
+view——&gt;commit——&gt;mutations——&gt;state变化——&gt;view变化（同步操作）
+
+view——&gt;dispatch——&gt;actions——&gt;mutations——&gt;state变化——&gt;view变化（异步操作）
 </code></pre></li>
 </ul>
-<h4 id="Vuex："><a href="#Vuex：" class="headerlink" title="Vuex："></a>Vuex：</h4><p>  view——&gt;commit——&gt;mutations——&gt;state变化——&gt;view变化（同步操作）</p>
-<p>  view——&gt;dispatch——&gt;actions——&gt;mutations——&gt;state变化——&gt;view变化（异步操作）</p>
 <pre><code>
 
 
