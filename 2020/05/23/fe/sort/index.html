@@ -219,7 +219,10 @@
 <h2 id="举例分析排序函数"><a href="#举例分析排序函数" class="headerlink" title="举例分析排序函数"></a>举例分析排序函数</h2><h3 id="C-语言中的qsort"><a href="#C-语言中的qsort" class="headerlink" title="C 语言中的qsort()"></a>C 语言中的qsort()</h3><ul>
 <li>qsort() 会优先使用归并排序来排序输入数据</li>
 <li>要排序的数据量比较大的时候，qsort() 会改为用快速排序算法来排序</li>
-<li>qsort() 并不仅仅用到了归并排序和快速排序，它还用到了插入排序。在快速排序的过程中，当要排序的区间中，元素的个数小于等于 4 时，qsort() 就退化为插入排序，不再继续用递归来做快速排序，因为我们前面也讲过，在小规模数据面前，O(n2) 时间复杂度的算法并不一定比 O(nlogn) 的算法执行时间长<h3 id="JS-中的Array-sort"><a href="#JS-中的Array-sort" class="headerlink" title="JS 中的Array.sort()"></a>JS 中的Array.sort()</h3>主要采用TimSort算法</li>
+<li>qsort() 并不仅仅用到了归并排序和快速排序，它还用到了插入排序。在快速排序的过程中，当要排序的区间中，元素的个数小于等于 4 时，qsort() 就退化为插入排序，不再继续用递归来做快速排序，因为我们前面也讲过，在小规模数据面前，O(n2) 时间复杂度的算法并不一定比 O(nlogn) 的算法执行时间长</li>
+</ul>
+<h3 id="JS-中的Array-sort"><a href="#JS-中的Array-sort" class="headerlink" title="JS 中的Array.sort()"></a>JS 中的Array.sort()</h3><p>主要采用TimSort算法</p>
+<ul>
 <li>元素个数 &lt; 32, 采用二分查找插入排序(Binary Sort)</li>
 <li>元素个数 &gt;= 32, 采用归并排序，归并的核心是分区(Run)</li>
 <li>找连续升或降的序列作为分区，分区最终被调整为升序后压入栈</li>
