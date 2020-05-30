@@ -206,7 +206,7 @@
 <li>Painting(重绘):根据渲染树以及回流得到的几何信息，得到节点的绝对像素</li>
 <li>Display:将像素发送给GPU，展示在页面上。</li>
 </ul>
-<h2 id="生成渲染树"><a href="#生成渲染树" class="headerlink" title="生成渲染树"></a>生成渲染树</h2><p><img src="/imgs/reflow/rebderTree.png" alt="pic"></p>
+<h2 id="生成渲染树"><a href="#生成渲染树" class="headerlink" title="生成渲染树"></a>生成渲染树</h2><p><img src="/imgs/reflow/renderTree.png" alt="pic"></p>
 <p>从图中我们可以看出：</p>
 <p>生成渲染树主要过程是</p>
 <ul>
@@ -261,7 +261,7 @@ el.style.padding = &quot;6px&quot;
 <p>读取offsetWidth渲染时：</p>
 <p><img src="/imgs/reflow/reflow_offsetWidth_1.png" alt="pic"></p>
 <p>读取width渲染时:</p>
-<p><img src="/imgs/reflow/reflow_offsetWidth_1.png" alt="pic"></p>
+<p><img src="/imgs/reflow/reflow_width_2.png" alt="pic"></p>
 <p>但是并非读取offsetWidth就会触发回流，如果读之前没有写操作，如下：</p>
 <pre><code>const el = document.getElementById(&#39;demo&#39;);
 // el.style.width = &quot;200px&quot;;
