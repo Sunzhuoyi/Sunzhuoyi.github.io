@@ -49,14 +49,14 @@
         <header>
     <nav class="navbar">
         <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Danika&#39;s Blog</a></div>
+            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
             <div class="menu navbar-right">
                 
                     <a class="menu-item" href="/archives">Posts</a>
                 
-                    <a class="menu-item" href="/categories">Categories</a>
+                    <a class="menu-item" href="/category">Categories</a>
                 
-                    <a class="menu-item" href="/tags">Tags</a>
+                    <a class="menu-item" href="/tag">Tags</a>
                 
                     <a class="menu-item" href="/about">About</a>
                 
@@ -71,7 +71,7 @@
         <div class="container">
             <div class="navbar-header">
                 <div>
-                    <a href="/">Danika&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
                 </div>
                 <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
             </div>
@@ -79,9 +79,9 @@
                 
                     <a class="menu-item" href="/archives">Posts</a>
                 
-                    <a class="menu-item" href="/categories">Categories</a>
+                    <a class="menu-item" href="/category">Categories</a>
                 
-                    <a class="menu-item" href="/tags">Tags</a>
+                    <a class="menu-item" href="/tag">Tags</a>
                 
                     <a class="menu-item" href="/about">About</a>
                 
@@ -107,6 +107,68 @@
             <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
@@ -115,10 +177,12 @@
             
                 <div class="post-meta">
                     
+                        Author: <a itemprop="author" rel="author" href="/">Danika</a>
+                    
 
                     
                         <span class="post-time">
-                        Date: <a href="#">May 7, 2020&nbsp;&nbsp;20:25:02</a>
+                        Date: <a href="#">May 7, 2020&nbsp;&nbsp;0:00:00</a>
                         </span>
                     
                     
@@ -134,25 +198,24 @@
         </header>
 
         <div class="post-content">
-            <h2 id="浏览器渲染过程"><a href="#浏览器渲染过程" class="headerlink" title="浏览器渲染过程"></a>浏览器渲染过程</h2><p><img src="/imgs/repaint.png" alt="pic"></p>
+            <h2 id="浏览器渲染过程"><a href="#浏览器渲染过程" class="headerlink" title="浏览器渲染过程"></a>浏览器渲染过程</h2><p><img src="/imgs/reflow/repaint.png" alt="pic"></p>
 <ul>
 <li>解析HTML，生成DOM树，解析CSS，生成CSSOM树</li>
 <li>将DOM树和CSSOM树结合，生成渲染树(Render Tree)</li>
 <li>Layout(回流):根据生成的渲染树，进行回流(Layout)，得到节点的几何信息（位置，大小）</li>
 <li>Painting(重绘):根据渲染树以及回流得到的几何信息，得到节点的绝对像素</li>
-<li>Display:将像素发送给GPU，展示在页面上。</li>
+<li>Display:将像素发送给GPU，展示在页面上。<h2 id="生成渲染树"><a href="#生成渲染树" class="headerlink" title="生成渲染树"></a>生成渲染树</h2><img src="/imgs/reflow/rebderTree.png" alt="pic"></li>
 </ul>
-<h2 id="生成渲染树"><a href="#生成渲染树" class="headerlink" title="生成渲染树"></a>生成渲染树</h2><p><img src="/imgs/renderTree.png" alt="pic"></p>
-<p>从图中我们可以看出：<br>生成渲染树主要过程是</p>
+<p>从图中我们可以看出：</p>
+<p>生成渲染树主要过程是</p>
 <ul>
 <li>从DOM树的根节点开始遍历每个可见节点（不可见节点包括script、meta、link等以及通过css隐藏等节点，display:none）。</li>
 <li>对于每个可见的节点，找到CSSOM树中对应的规则，并应用它们。</li>
 <li>根据每个可见节点以及其对应的样式，组合生成渲染树。</li>
 <li>DOM解析和CSS解析是两个并行的进程，所以CSS加载不会阻塞DOM的解析。</li>
 <li>由于Render Tree是依赖于DOM Tree和CSSOM Tree的，所以他必须等待到CSSOM Tree构建完成，也就是CSS资源加载完成(或者CSS资源加载失败)后，才能开始渲染。因此，CSS加载是会阻塞Dom的渲染的。</li>
-<li>由于js可能会操作之前的Dom节点和css样式，因此浏览器会维持html中css和js的顺序。因此，样式表会在后面的js执行前先加载执行完毕。所以css会阻塞后面js的执行。</li>
+<li>由于js可能会操作之前的Dom节点和css样式，因此浏览器会维持html中css和js的顺序。因此，样式表会在后面的js执行前先加载执行完毕。所以css会阻塞后面js的执行。<h2 id="回流"><a href="#回流" class="headerlink" title="回流"></a>回流</h2>当Render Tree中部分或全部元素的尺寸、结构、或某些属性发生改变时，浏览器重新渲染部分或全部文档的过程称为回流。</li>
 </ul>
-<h2 id="回流"><a href="#回流" class="headerlink" title="回流"></a>回流</h2><p>当Render Tree中部分或全部元素的尺寸、结构、或某些属性发生改变时，浏览器重新渲染部分或全部文档的过程称为回流</p>
 <p>一些常用会导致回流的属性和方法</p>
 <ul>
 <li>clientWidth、clientHeight、clientTop、clientLeft</li>
@@ -161,66 +224,77 @@
 <li>scrollIntoView()、scrollIntoViewIfNeeded()</li>
 <li>getComputedStyle()</li>
 <li>getBoundingClientRect()</li>
-<li>scrollTo()</li>
+<li>scrollTo()<h2 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h2>当页面中元素样式的改变并不影响它在文档流中的位置时（例如：color、background-color、visibility等），浏览器会将新样式赋予给元素并重新绘制它，这个过程称为重绘。<h2 id="性能开销"><a href="#性能开销" class="headerlink" title="性能开销"></a>性能开销</h2>回流一定会重绘，回流比重绘代价更高。</li>
 </ul>
-<h2 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h2><p>当页面中元素样式的改变并不影响它在文档流中的位置时（例如：color、background-color、visibility等），浏览器会将新样式赋予给元素并重新绘制它，这个过程称为重绘。</p>
-<h2 id="性能开销"><a href="#性能开销" class="headerlink" title="性能开销"></a>性能开销</h2><p>回流一定会重绘，回流比重绘代价更高。</p>
-<p>但是是不是每次有会导致浏览器回流重绘的操作浏览器立马执行操作呢？<br>答案是否定的：</p>
+<p>但是是不是每次有会导致浏览器回流重绘的操作浏览器立马执行操作呢？</p>
+<p>答案是否定的：</p>
 <blockquote>
 <p>浏览器会维护一个队列，把所有引起回流和重绘的操作放入队列中，如果队列中的任务数量或者时间间隔达到一个阈值的，浏览器就会将队列清空，进行一次批处理，这样可以把多次回流和重绘变成一次</p>
 </blockquote>
 <p>但是当访问一些属性或方法时浏览器会立刻清空队列：</p>
 <ul>
 <li>clientWidth、clientHeight、clientTop、clientLeft</li>
-</ul>
-<ul>
 <li>offsetWidth、offsetHeight、offsetTop、offsetLeft</li>
-</ul>
-<ul>
 <li>scrollWidth、scrollHeight、scrollTop、scrollLeft</li>
-</ul>
-<ul>
 <li>getComputedStyle()</li>
-</ul>
-<ul>
-<li>getBoundingClientRect()</li>
-</ul>
-<p>原因：需要保证这些操作拿到的值是最精确的</p>
-<h3 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h3><pre><code>const el = document.getElementById(&#39;demo&#39;);
+<li>getBoundingClientRect()<br>原因：需要保证这些操作拿到的值是最精确的<h3 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h3><pre><code>const el = document.getElementById(&#39;demo&#39;);
 el.style.padding = &#39;5px&#39;;
 el.style.borderLeft = &#39;1px&#39;;
-el.style.borderRight = &#39;2px&#39;;</code></pre><p>新版浏览器上只会触发一次回流（没有其他影响的情况下，不考虑有其他代码访问了触发浏览器清空队列的属性或方法）</p>
-<pre><code>const el = document.getElementById(&#39;demo&#39;);
-el.style.width = &quot;200px&quot;;
-var offsetWidth = dom.offsetWidth;
-// var width = dom.style.width;
+el.style.borderRight = &#39;2px&#39;;
+</code></pre></li>
+</ul>
+<pre><code>
+新版浏览器上只会触发一次回流（没有其他影响的情况下，不考虑有其他代码访问了触发浏览器清空队列的属性或方法）
+</code></pre><p>const el = document.getElementById(‘demo’);<br>el.style.width = “200px”;<br>var offsetWidth = dom.offsetWidth;<br>// var width = dom.style.width;</p>
+<p>el.style.height =  offsetWdth + “px”;<br>// el.style.height =  width + “px”;<br>el.style.padding = “6px”</p>
+<pre><code>
 
-el.style.height =  offsetWdth + &quot;px&quot;;
-// el.style.height =  width + &quot;px&quot;;
-el.style.padding = &quot;6px&quot;
-</code></pre><p>会触发两次回流，因为访问offsetWidth会触发一次,但是如果取用width而不是offsetWidth的话则是触发一次回流。</p>
-<p>读取offsetWidth渲染时：<br><img src="/imgs/reflow_offsetWidth.png" alt="pic"></p>
-<p>读取width渲染时:<br><img src="/imgs/reflow_width.png" alt="pic"></p>
-<p>但是并非读取offsetWidth就会触发回流，如果读之前没有写操作，如下：</p>
-<pre><code>const el = document.getElementById(&#39;demo&#39;);
-// el.style.width = &quot;200px&quot;;
-var offsetWidth = dom.offsetWidth;
-// var width = dom.style.width;
+会触发两次回流，因为访问offsetWidth会触发一次,但是如果取用width而不是offsetWidth的话则是触发一次回流。
 
-el.style.height =  offsetWdth + &quot;px&quot;;
-// el.style.height =  width + &quot;px&quot;;
-el.style.padding = &quot;6px&quot;</code></pre><p>回流仍然只是一次，虽然清空队列了，但是队列里并没有内容可执行。</p>
-<p><img src="/imgs/reflow_nowrite.png" alt="pic"></p>
-<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p><a href="https://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html" target="_blank" rel="noopener">网页性能优化管理 by 阮一峰</a></p>
-<p>本来想重新总结一下，后来发现阮老师写的太好了，上面的文章有一点要注意的是谷歌浏览器TimeLine工具放在了Performance里面，如上面例子的截图。</p>
+读取offsetWidth渲染时：
+![pic](imgs/reflow/reflow_offsetWidth_1.png)
 
+
+读取width渲染时:
+![pic](imgs/reflow/reflow_offsetWidth_1.png)
+
+但是并非读取offsetWidth就会触发回流，如果读之前没有写操作，如下：
+</code></pre><p>const el = document.getElementById(‘demo’);<br>// el.style.width = “200px”;<br>var offsetWidth = dom.offsetWidth;<br>// var width = dom.style.width;</p>
+<p>el.style.height =  offsetWdth + “px”;<br>// el.style.height =  width + “px”;<br>el.style.padding = “6px”</p>
+<pre><code>
+回流仍然只是一次，虽然清空队列了，但是队列里并没有内容可执行。
+![pic](imgs/reflow/reflow_nowrite_4.png)
+
+## 性能优化
+[网页性能优化管理 by 阮一峰](https://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html)
+本来想重新总结一下，后来发现阮老师写的太好了，上面的文章有一点要注意的是谷歌浏览器TimeLine工具放在了Performance里面，如上面例子的截图。</code></pre>
         </div>
 
         
             <section class="post-copyright">
                 
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Danika</span>
+                    </p>
                 
                 
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://sunzhuoyi.github.io/2020/05/07/fe/reflow/">https://sunzhuoyi.github.io/2020/05/07/fe/reflow/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
                 
 
             </section>
@@ -244,10 +318,10 @@ el.style.padding = &quot;6px&quot;</code></pre><p>回流仍然只是一次，虽
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/05/23/algorithm/sort/">排序函数的实现方法</a>
+                <a class="prev" rel="prev" href="/2020/05/23/fe/sort/">排序函数的实现方法</a>
             
             
-            <a class="next" rel="next" href="/2020/04/18/fe/react-vue/">细说React、Vue同异</a>
+            <a class="next" rel="next" href="/2020/04/18/fe/react-vue/">细说React&&Vue同异</a>
             
         </section>
 

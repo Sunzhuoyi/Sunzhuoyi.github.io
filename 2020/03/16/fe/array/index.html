@@ -49,14 +49,14 @@
         <header>
     <nav class="navbar">
         <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Danika&#39;s Blog</a></div>
+            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
             <div class="menu navbar-right">
                 
                     <a class="menu-item" href="/archives">Posts</a>
                 
-                    <a class="menu-item" href="/categories">Categories</a>
+                    <a class="menu-item" href="/category">Categories</a>
                 
-                    <a class="menu-item" href="/tags">Tags</a>
+                    <a class="menu-item" href="/tag">Tags</a>
                 
                     <a class="menu-item" href="/about">About</a>
                 
@@ -71,7 +71,7 @@
         <div class="container">
             <div class="navbar-header">
                 <div>
-                    <a href="/">Danika&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
                 </div>
                 <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
             </div>
@@ -79,9 +79,9 @@
                 
                     <a class="menu-item" href="/archives">Posts</a>
                 
-                    <a class="menu-item" href="/categories">Categories</a>
+                    <a class="menu-item" href="/category">Categories</a>
                 
-                    <a class="menu-item" href="/tags">Tags</a>
+                    <a class="menu-item" href="/tag">Tags</a>
                 
                     <a class="menu-item" href="/about">About</a>
                 
@@ -107,6 +107,68 @@
             <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
@@ -114,6 +176,8 @@
             <h1 class="post-title">关于数组的一些思考和整理</h1>
             
                 <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Danika</a>
                     
 
                     
@@ -166,20 +230,39 @@ return Array.isArray(value);
 }else{
 return Object.prototype.toString.call(value) === &quot;[object Array]&quot;;
 }</code></pre><h2 id="数组扁平化"><a href="#数组扁平化" class="headerlink" title="数组扁平化"></a>数组扁平化</h2><h3 id="参考第一段示例代码-可知调用-arr-toString"><a href="#参考第一段示例代码-可知调用-arr-toString" class="headerlink" title="参考第一段示例代码 可知调用 arr.toString()"></a>参考第一段示例代码 可知调用 arr.toString()</h3><h3 id="ES6-数组的扩展-flat-flatMap"><a href="#ES6-数组的扩展-flat-flatMap" class="headerlink" title="ES6 数组的扩展 flat(), flatMap()"></a>ES6 数组的扩展 flat(), flatMap()</h3><p><a href="https://es6.ruanyifeng.com/#docs/array#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84-flat%EF%BC%8CflatMap" target="_blank" rel="noopener">flat,flatMap</a></p>
-<h2 id="数组的方法"><a href="#数组的方法" class="headerlink" title="数组的方法"></a>数组的方法</h2><p>方法挺多，只列一下常用的不改变原数组的</p>
+<h2 id="数组的方法"><a href="#数组的方法" class="headerlink" title="数组的方法"></a>数组的方法</h2><p>方法挺多，只列一下不改变原数组的（8个）</p>
 <p>ES5:</p>
-<p>join, toLocaleString, toString, slice,  concat, indexOf, lastIndexOf, map</p>
+<p>join, toLocaleString, toString, slice,  concat, indexOf, lastIndexOf</p>
 <p>ES6:</p>
 <p>includes</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noopener">具体参考 MDN Array</a></p>
 
         </div>
 
         
             <section class="post-copyright">
                 
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Danika</span>
+                    </p>
                 
                 
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://sunzhuoyi.github.io/2020/03/16/fe/array/">https://sunzhuoyi.github.io/2020/03/16/fe/array/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
                 
 
             </section>
@@ -190,7 +273,7 @@ return Object.prototype.toString.call(value) === &quot;[object Array]&quot;;
                 <span class="tag">
                     
                     
-                        <a href="/tags/JS/"># JS</a>
+                        <a href="/tags/js/"># js</a>
                     
                         
                 </span>
