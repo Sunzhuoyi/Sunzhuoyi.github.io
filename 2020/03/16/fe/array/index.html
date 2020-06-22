@@ -12,7 +12,7 @@
 
 
 
-<title>关于数组的一些思考和整理 | Danika&#39;s Blog</title>
+<title>fe/array | Danika&#39;s Blog</title>
 
 
 
@@ -111,7 +111,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">关于数组的一些思考和整理</h1>
+            <h1 class="post-title">fe/array</h1>
             
                 <div class="post-meta">
                     
@@ -126,7 +126,7 @@
                         </span>
                     
                     <span id="/2020/03/16/fe/array/" class="leancloud-visitors view"
-                          data-flag-title="关于数组的一些思考和整理">
+                          data-flag-title="fe/array">
                         <em class="post-meta-item-text">Pageviews:</em>
                         <i class="leancloud-visitors-count"></i>
 </span>
@@ -167,11 +167,18 @@ return Array.isArray(value);
 }else{
 return Object.prototype.toString.call(value) === &quot;[object Array]&quot;;
 }</code></pre><h2 id="数组扁平化"><a href="#数组扁平化" class="headerlink" title="数组扁平化"></a>数组扁平化</h2><h3 id="参考第一段示例代码-可知调用-arr-toString"><a href="#参考第一段示例代码-可知调用-arr-toString" class="headerlink" title="参考第一段示例代码 可知调用 arr.toString()"></a>参考第一段示例代码 可知调用 arr.toString()</h3><h3 id="ES6-数组的扩展-flat-flatMap"><a href="#ES6-数组的扩展-flat-flatMap" class="headerlink" title="ES6 数组的扩展 flat(), flatMap()"></a>ES6 数组的扩展 flat(), flatMap()</h3><p><a href="https://es6.ruanyifeng.com/#docs/array#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84-flat%EF%BC%8CflatMap" target="_blank" rel="noopener">flat,flatMap</a></p>
-<h2 id="数组的方法"><a href="#数组的方法" class="headerlink" title="数组的方法"></a>数组的方法</h2><p>方法挺多，只列一下不改变原数组的（8个）</p>
-<p>ES5:</p>
+<h2 id="数组的方法"><a href="#数组的方法" class="headerlink" title="数组的方法"></a>数组的方法</h2><h3 id="不改变原数组（8个）"><a href="#不改变原数组（8个）" class="headerlink" title="不改变原数组（8个）"></a>不改变原数组（8个）</h3><p>ES5:</p>
 <p>join, toLocaleString, toString, slice,  concat, indexOf, lastIndexOf</p>
 <p>ES6:</p>
 <p>includes</p>
+<h3 id="改变原数组（9个）"><a href="#改变原数组（9个）" class="headerlink" title="改变原数组（9个）"></a>改变原数组（9个）</h3><p>ES5:</p>
+<p>splice, sort, pop, shift, push, unshift, reverse</p>
+<p>ES6:</p>
+<p>copyWithin, fill</p>
+<h3 id="遍历方法-12个"><a href="#遍历方法-12个" class="headerlink" title="遍历方法(12个)"></a>遍历方法(12个)</h3><p>ES5:</p>
+<p>forEach, every, some, filter, map, reduce, reduceRight</p>
+<p>ES6:</p>
+<p>find, findIndex, keys, values, entries</p>
 
         </div>
 
